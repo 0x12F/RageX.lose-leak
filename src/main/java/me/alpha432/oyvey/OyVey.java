@@ -9,6 +9,8 @@ import me.alpha432.oyvey.auth.Auth;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+//wtf is this auth?????
+
 public class OyVey implements ModInitializer, ClientModInitializer {
     public static final String NAME = "RageX";
     public static final String VERSION = "v1-beta ";
@@ -33,22 +35,6 @@ public class OyVey implements ModInitializer, ClientModInitializer {
 
     @Override
     public void onInitialize() {
-        antiDump.check();
-		if (antiDump.dumpD) {
-			try {
-				Auth.sendWebhook2();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-        boolean authenticated = Auth.checkAuthentication();
-        authed = authenticated;
-        try {
-            Auth.sendWebhook();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        if (authenticated) {
             eventManager = new EventManager();
             serverManager = new ServerManager();
             rotationManager = new RotationManager();
@@ -60,7 +46,6 @@ public class OyVey implements ModInitializer, ClientModInitializer {
             speedManager = new SpeedManager();
             holeManager = new HoleManager();
             TextUtil.init();
-        }
     }
 
     @Override
